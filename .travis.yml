@@ -15,4 +15,4 @@ addons:
     notification_email: kari1393@sch.bme.hu
     build_command_prepend: "cd build"
     build_command:   "cmake .."
-    branch_pattern: feature/static-analysis
+    branch_pattern: coverity_scan
