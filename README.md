@@ -35,3 +35,15 @@ Az egyes branch csoportokat mappákba szervezi:
 Ha kész vagyok, az alábbi módon zárhatom le (megint a Git Flow gomb használatával):
 
 <img src="doc/images/gitflow-close-feature.png"/>
+
+### Travis
+
+A Travis a gyakorlaton megismert CI rendszer. Ugyan a projektben már volt egy Travis config fájl, de ellenőriztük a működését, illetve ezt valamellyest át kellett írnunk a Coverity használatához.
+
+<img src="doc/images/travis.png"/>
+
+### Coverity
+
+A Coverity statikus kódellenőrzésre szolgál. A Coverity a Travis-en keresztül működik automatizáltan (commit hatására):
+
+<img src="doc/images/coverity.png"/>
