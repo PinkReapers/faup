@@ -55,11 +55,11 @@ Láthatjuk, hogy nem talál hibákat a kódban.
 
 Github segítségével vizsgáltuk a kódot. Érdekesnek találtuk a licensz header kommentet:
 
-<img src="doc/images/license.png"/>
+<img src="doc/images/license.PNG"/>
 
 Az alkalmazás lelke, a fő ciklus az URL-ek vizsgálatára a feature.c fájlban található.
 
-<img src="doc/images/code-review.png"/>
+<img src="doc/images/code-review.PNG"/>
 
 Itt látszik, hogy végigmászik a kapott stringen, és az aktuális karakterektől függően épít fel egy belső leíró struktúrát a megadott Url-ről.
 
