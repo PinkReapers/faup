@@ -1,206 +1,49 @@
 <p align="center"><img src="doc/images/faup-logo.png"/></p>
 
-**Faup** stands for Finally An Url Parser and is a library and command line tool to parse URLs and normalize fields with two constraints:
- 1. Work with real-life urls (resilient to badly formated ones)
- 2. Be fast: no allocation for string parsing and read characters only once
+# Dokumentáció a Intergrációs és ellenőrzési technikák c. tárgy házifeladatához.
 
+## CI és statikus ellenőrzés
 
- * **Webpage**: [http://stricaud.github.io/faup/](http://stricaud.github.io/faup/)
- * **Source**: [https://github.com/stricaud/faup][github]
- * **Issues**: [https://github.com/stricaud/faup/issues][issues]
- * **Mailing List**: [libfaup@googlegroups.com](https://groups.google.com/d/forum/libfaup)
+### Git Flow
 
-## Documentation
+Git kliensnek mi a SourceTree-t választottuk, mely támogatja a Git Flow használatát.
+Amikor klónoztam a Master-t:
 
-* [Command Line Tool][clidoc]
-* [Working with Snapshots][snapshots]
-* [Library API documentation][libdoc]
+<img src="doc/images/without-gitflow.png"/>
 
-* [Frequently Asked Questions][faq]
+A Git Flow gomb megnyomásával lehetet, a helyi gépen inicializálni ezt a funkciót:
 
-## Badges
+<img src="doc/images/gitflow-init.png"/>
 
-<img alt="Travis Continuous Build" src="https://travis-ci.org/stricaud/faup.svg?branch=master" />
-<br/>
-<a href="https://scan.coverity.com/projects/faup">
-   <img alt="Coverity Scan Build Status" src="https://scan.coverity.com/projects/10609/badge.svg" />
-</a>
+Miután ezt megtettük létrejön a Master mellett a Develop branch is:
 
-## Quick Start
+<img src="doc/images/gitflow-after-init.png"/>
 
-What is provided?
------------------
+Ezek után új branch-et már csak a Git Flow gomb használatával éredemes/szabad létrehozni.
+Lehet látni, hogy itt a Git Flow-nak megfelelő branch-eket ajánlja föl létrehozásra:
 
-* A static library you can embed in your software (faup_static)
-* A dynamic library you can get along with (faupl)
-* A command line tool you can use to extract various parts of a url (faup)
+<img src="doc/images/gitflow-use-gitflow-button.png"/>
 
-Why Yet Another URL Extraction Library?
----------------------------------------
+Létrehozok példaként egy **feature** branch-et:
 
-Because they all suck. Find a library that can extract, say, a TLD even if you have 
-an IP address, or http://localhost, or anything that may confuse your regex so much
-that you end up with an unmaintainable one.
+<img src="doc/images/gitflow-new-feature.png"/>
 
-Command line usage
-------------------
+Az egyes branch csoportokat mappákba szervezi:
 
-Simply pipe or give your url as a parameter:
+<img src="doc/images/gitflow-new-feature-after.png"/>
 
-	$ echo "www.github.com" |faup -p
-	scheme,credential,subdomain,domain,host,tld,port,resource_path,query_string,fragment
-	,,www,github.com,www.github.com,com,,,,
+Ha kész vagyok, az alábbi módon zárhatom le (megint a Git Flow gomb használatával):
 
-	$ faup www.github.com
-	,,www,github.com,www.github.com,com,,,,
+<img src="doc/images/gitflow-close-feature.png"/>
 
-If that url is a file, multiple values will be unpacked:
+### Travis
 
-   	$ cat urls.txt 
-   	https://foo:bar@example.com
-   	localhost
-   	www.mozilla.org:80/index.php
+A Travis a gyakorlaton megismert CI rendszer. Ugyan a projektben már volt egy Travis config fájl, de ellenőriztük a működését, illetve ezt valamellyest át kellett írnunk a Coverity használatához.
 
-   	$ faup -p urls.txt 
-   	scheme,credential,subdomain,domain,domain_without_tld,host,tld,port,resource_path,query_string,fragment
-   	https,foo:bar,,example.com,example,example.com,com,,,,
-   	,,,localhost,localhost,localhost,,,,,
-   	,,www,mozilla.org,mozilla,www.mozilla.org,org,80,/index.php,,
+<img src="doc/images/travis.png"/>
 
-Extract only the TLD field
---------------------------
+### Coverity
 
-Faup uses the [Mozilla list](http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1) to extract TLDs of level greater than one. Can handle exceptions, etc.
+A Coverity statikus kódellenőrzésre szolgál. A Coverity a Travis-en keresztül működik automatizáltan (commit hatására):
 
-	$ faup -f tld slashdot.org
-	org
-
-	$ faup -f tld www.bbc.co.uk
-	co.uk
-
-Json output, high level TLDs
-----------------------------
-
-The Json output can be called like this:
-
-	$ faup -o json www.takatoukiter.foobar.yokohama.jp
-	{
-		"scheme": "",
-		"credential": "",
-		"subdomain": "www",
-		"domain": "takatoukiter.foobar.yokohama.jp",
-		"domain_without_tld": "takatoukiter",
-		"host": "www.takatoukiter.foobar.yokohama.jp",
-		"tld": "foobar.yokohama.jp",
-		"port": "",
-		"resource_path": "",
-		"query_string": "",
-		"fragment": ""
-	}
-
-
-Building faup
--------------
-
-To get and build faup, you need [cmake](http://www.cmake.org/). As cmake doesn't allow
-to build the binary in the source directory, you have to create a build directory.
-
-    git clone git://github.com/stricaud/faup.git
-    cd faup
-    mkdir build
-    cd build
-    cmake .. && make
-    sudo make install
-
-## LUA support
-Faup can be compiled without LUA support. In that case, CMake will output the following line
-```
--- Could NOT find Lua51 (missing:  LUA_INCLUDE_DIR) 
-```
-
-If you want to add LUA functionnality you need to install lua development headers prior to the previous building steps. 
-
-For example, on Redhat systems:
-```
-# yum -y install lua lua-devel
-```
-
-
-    
-CMake 2.8 for Redhat/CentOS 6.x
--------------------------------
-The following error may appears if you have an outdated version of CMake (just like Redhat and CentOS systems):
-
-```
-CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
-  CMake 2.8 or higher is required.  You are running version 2.6.4
-
--- Configuring incomplete, errors occurred!
-```
-
-To manually install CMake 2.8 on Redhat/CentOS systems use the sources and follow those instructions:
-
-```
-# Install dependencies
-yum install ncurses-devel gcc gcc-c++ make
-
-# Get the sources
-cd /usr/local/
-wget http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz
-tar xzf cmake-2.8.12.2.tar.gz
-cd cmake-2.8.12.2
-
-# Compile and install the sources
-./configure
-make
-make install
-
-# clean the env
-cd /usr/local
-rm -rf cmake-2.8.12.2 cmake-2.8.12.2.tar.gz
-
-# adding cmake to the PATH 
-echo "PATH=/usr/local/bin/:\$PATH" > /etc/profile.d/cmake28.sh 
-source /etc/profile
-```
-    
-    
-FAQ
----
-
-### Why do I receive the error “libfaupl.so.1: cannot open shared object file” when trying to run faup?
-
-If you get a shared library loading error similar to the following when trying to run faup, its probably due to your platform doesn't include the `/usr/local/lib` shared library directory by default  (ex: [Ubuntu](http://developer.ubuntu.com/packaging/html/libraries.html)/[Debian](http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-ldconfig))  or the directory where faup has its shared library installed:
-
-```
-$ faup
-faup: error while loading shared libraries: libfaupl.so.1: cannot open shared object file: No such file or director
-```
-
-A good way to see which shared libraries are loaded by faup is by using the `ldd` command:
-```
-$ ldd /usr/local/bin/faup 
-	linux-vdso.so.1 =>  (0x00007fff89735000)
-	libfaupl.so.1 => not found
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f55a6082000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f55a641a000)
-
-```
-To update the faup shared library path, you can use the `ldconfig` command. For example if faup libraries are installed in `/usr/local/lib`, you can add the path as follows:
-```
-$ echo '/usr/local/lib' | sudo tee -a /etc/ld.so.conf.d/faup.conf
-$ ldconfig
-$ ldd /usr/local/bin/faup 
-	linux-vdso.so.1 =>  (0x00007fff550d5000)
-	libfaupl.so.1 => /usr/local/lib/libfaupl.so.1 (0x00007f41f9102000)
-	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f41f8d78000)
-	/lib64/ld-linux-x86-64.so.2 (0x00007f41f9317000)
-
-```
-
-[github]: https://github.com/stricaud/faup
-[issues]: https://github.com/stricaud/faup/issues
-[libdoc]: doc/library.md
-[clidoc]: doc/cli.md
-[faq]: doc/faq.md
-[snapshots]: doc/snapshots.md
+<img src="doc/images/coverity.png"/>
