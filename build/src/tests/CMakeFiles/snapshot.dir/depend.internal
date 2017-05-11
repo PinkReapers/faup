@@ -15,5 +15,5 @@ src/tests/CMakeFiles/snapshot.dir/snapshot.c.o
  ../src/lib/include/faup/snapshot.h
  ../src/lib/include/faup/tld-tree.h
  ../src/lib/include/faup/tld.h
- /home/fox/faup-master/src/tests/snapshot.c
+ /home/fox/faup_push/src/tests/snapshot.c
  src/lib/include/faup/version.h

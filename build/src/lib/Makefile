@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fox/faup-master
+CMAKE_SOURCE_DIR = /home/fox/faup_push
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fox/faup-master/build
+CMAKE_BINARY_DIR = /home/fox/faup_push/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,16 +67,59 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	cd /home/fox/faup_push/build && /usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target package
+package/fast: package
 
-.PHONY : install/local/fast
+.PHONY : package/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	cd /home/fox/faup_push/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup_push/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+
+.PHONY : package_source/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Application\" \"Headers\" \"Libraries\" \"Unspecified\" \"doc\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -90,81 +133,27 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Application\" \"Headers\" \"Libraries\" \"Unspecified\" \"doc\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/fox/faup-master/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup-master/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/fox/faup-master/build && /usr/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-
-.PHONY : package/fast
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles /home/fox/faup-master/build/src/lib/CMakeFiles/progress.marks
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles 0
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles /home/fox/faup_push/build/src/lib/CMakeFiles/progress.marks
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/clean
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,37 +163,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/preinstall
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/preinstall
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-src/lib/CMakeFiles/faup_static.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/CMakeFiles/faup_static.dir/rule
-.PHONY : src/lib/CMakeFiles/faup_static.dir/rule
-
-# Convenience name for target.
-faup_static: src/lib/CMakeFiles/faup_static.dir/rule
-
-.PHONY : faup_static
-
-# fast build rule for target.
-faup_static/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/build
-.PHONY : faup_static/fast
-
-# Convenience name for target.
 src/lib/CMakeFiles/faupl.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/CMakeFiles/faupl.dir/rule
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/CMakeFiles/faupl.dir/rule
 .PHONY : src/lib/CMakeFiles/faupl.dir/rule
 
 # Convenience name for target.
@@ -214,8 +188,28 @@ faupl: src/lib/CMakeFiles/faupl.dir/rule
 
 # fast build rule for target.
 faupl/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/build
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/build
 .PHONY : faupl/fast
+
+# Manual pre-install relink rule for target.
+faupl/preinstall:
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/CMakeFiles/faupl.dir/preinstall
+.PHONY : faupl/preinstall
+
+# Convenience name for target.
+src/lib/CMakeFiles/faup_static.dir/rule:
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/lib/CMakeFiles/faup_static.dir/rule
+.PHONY : src/lib/CMakeFiles/faup_static.dir/rule
+
+# Convenience name for target.
+faup_static: src/lib/CMakeFiles/faup_static.dir/rule
+
+.PHONY : faup_static
+
+# fast build rule for target.
+faup_static/fast:
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/build
+.PHONY : faup_static/fast
 
 b64/cdecode.o: b64/cdecode.c.o
 
@@ -223,8 +217,8 @@ b64/cdecode.o: b64/cdecode.c.o
 
 # target to build an object file
 b64/cdecode.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cdecode.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cdecode.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cdecode.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cdecode.c.o
 .PHONY : b64/cdecode.c.o
 
 b64/cdecode.i: b64/cdecode.c.i
@@ -233,8 +227,8 @@ b64/cdecode.i: b64/cdecode.c.i
 
 # target to preprocess a source file
 b64/cdecode.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cdecode.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cdecode.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cdecode.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cdecode.c.i
 .PHONY : b64/cdecode.c.i
 
 b64/cdecode.s: b64/cdecode.c.s
@@ -243,8 +237,8 @@ b64/cdecode.s: b64/cdecode.c.s
 
 # target to generate assembly for a file
 b64/cdecode.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cdecode.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cdecode.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cdecode.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cdecode.c.s
 .PHONY : b64/cdecode.c.s
 
 b64/cencode.o: b64/cencode.c.o
@@ -253,8 +247,8 @@ b64/cencode.o: b64/cencode.c.o
 
 # target to build an object file
 b64/cencode.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cencode.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cencode.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cencode.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cencode.c.o
 .PHONY : b64/cencode.c.o
 
 b64/cencode.i: b64/cencode.c.i
@@ -263,8 +257,8 @@ b64/cencode.i: b64/cencode.c.i
 
 # target to preprocess a source file
 b64/cencode.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cencode.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cencode.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cencode.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cencode.c.i
 .PHONY : b64/cencode.c.i
 
 b64/cencode.s: b64/cencode.c.s
@@ -273,8 +267,8 @@ b64/cencode.s: b64/cencode.c.s
 
 # target to generate assembly for a file
 b64/cencode.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cencode.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cencode.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/b64/cencode.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/b64/cencode.c.s
 .PHONY : b64/cencode.c.s
 
 civetweb/civetweb.o: civetweb/civetweb.c.o
@@ -283,8 +277,8 @@ civetweb/civetweb.o: civetweb/civetweb.c.o
 
 # target to build an object file
 civetweb/civetweb.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/civetweb/civetweb.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/civetweb/civetweb.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/civetweb/civetweb.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/civetweb/civetweb.c.o
 .PHONY : civetweb/civetweb.c.o
 
 civetweb/civetweb.i: civetweb/civetweb.c.i
@@ -293,8 +287,8 @@ civetweb/civetweb.i: civetweb/civetweb.c.i
 
 # target to preprocess a source file
 civetweb/civetweb.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/civetweb/civetweb.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/civetweb/civetweb.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/civetweb/civetweb.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/civetweb/civetweb.c.i
 .PHONY : civetweb/civetweb.c.i
 
 civetweb/civetweb.s: civetweb/civetweb.c.s
@@ -303,8 +297,8 @@ civetweb/civetweb.s: civetweb/civetweb.c.s
 
 # target to generate assembly for a file
 civetweb/civetweb.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/civetweb/civetweb.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/civetweb/civetweb.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/civetweb/civetweb.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/civetweb/civetweb.c.s
 .PHONY : civetweb/civetweb.c.s
 
 datadir.o: datadir.c.o
@@ -313,8 +307,8 @@ datadir.o: datadir.c.o
 
 # target to build an object file
 datadir.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/datadir.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/datadir.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/datadir.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/datadir.c.o
 .PHONY : datadir.c.o
 
 datadir.i: datadir.c.i
@@ -323,8 +317,8 @@ datadir.i: datadir.c.i
 
 # target to preprocess a source file
 datadir.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/datadir.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/datadir.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/datadir.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/datadir.c.i
 .PHONY : datadir.c.i
 
 datadir.s: datadir.c.s
@@ -333,8 +327,8 @@ datadir.s: datadir.c.s
 
 # target to generate assembly for a file
 datadir.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/datadir.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/datadir.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/datadir.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/datadir.c.s
 .PHONY : datadir.c.s
 
 decode.o: decode.c.o
@@ -343,8 +337,8 @@ decode.o: decode.c.o
 
 # target to build an object file
 decode.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/decode.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/decode.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/decode.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/decode.c.o
 .PHONY : decode.c.o
 
 decode.i: decode.c.i
@@ -353,8 +347,8 @@ decode.i: decode.c.i
 
 # target to preprocess a source file
 decode.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/decode.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/decode.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/decode.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/decode.c.i
 .PHONY : decode.c.i
 
 decode.s: decode.c.s
@@ -363,8 +357,8 @@ decode.s: decode.c.s
 
 # target to generate assembly for a file
 decode.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/decode.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/decode.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/decode.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/decode.c.s
 .PHONY : decode.c.s
 
 faup.o: faup.c.o
@@ -373,8 +367,8 @@ faup.o: faup.c.o
 
 # target to build an object file
 faup.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/faup.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/faup.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/faup.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/faup.c.o
 .PHONY : faup.c.o
 
 faup.i: faup.c.i
@@ -383,8 +377,8 @@ faup.i: faup.c.i
 
 # target to preprocess a source file
 faup.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/faup.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/faup.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/faup.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/faup.c.i
 .PHONY : faup.c.i
 
 faup.s: faup.c.s
@@ -393,8 +387,8 @@ faup.s: faup.c.s
 
 # target to generate assembly for a file
 faup.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/faup.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/faup.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/faup.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/faup.c.s
 .PHONY : faup.c.s
 
 features.o: features.c.o
@@ -403,8 +397,8 @@ features.o: features.c.o
 
 # target to build an object file
 features.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/features.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/features.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/features.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/features.c.o
 .PHONY : features.c.o
 
 features.i: features.c.i
@@ -413,8 +407,8 @@ features.i: features.c.i
 
 # target to preprocess a source file
 features.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/features.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/features.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/features.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/features.c.i
 .PHONY : features.c.i
 
 features.s: features.c.s
@@ -423,8 +417,8 @@ features.s: features.c.s
 
 # target to generate assembly for a file
 features.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/features.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/features.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/features.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/features.c.s
 .PHONY : features.c.s
 
 hash/hash.o: hash/hash.c.o
@@ -433,8 +427,8 @@ hash/hash.o: hash/hash.c.o
 
 # target to build an object file
 hash/hash.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/hash.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/hash.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/hash.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/hash.c.o
 .PHONY : hash/hash.c.o
 
 hash/hash.i: hash/hash.c.i
@@ -443,8 +437,8 @@ hash/hash.i: hash/hash.c.i
 
 # target to preprocess a source file
 hash/hash.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/hash.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/hash.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/hash.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/hash.c.i
 .PHONY : hash/hash.c.i
 
 hash/hash.s: hash/hash.c.s
@@ -453,8 +447,8 @@ hash/hash.s: hash/hash.c.s
 
 # target to generate assembly for a file
 hash/hash.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/hash.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/hash.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/hash.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/hash.c.s
 .PHONY : hash/hash.c.s
 
 hash/htable.o: hash/htable.c.o
@@ -463,8 +457,8 @@ hash/htable.o: hash/htable.c.o
 
 # target to build an object file
 hash/htable.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/htable.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/htable.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/htable.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/htable.c.o
 .PHONY : hash/htable.c.o
 
 hash/htable.i: hash/htable.c.i
@@ -473,8 +467,8 @@ hash/htable.i: hash/htable.c.i
 
 # target to preprocess a source file
 hash/htable.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/htable.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/htable.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/htable.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/htable.c.i
 .PHONY : hash/htable.c.i
 
 hash/htable.s: hash/htable.c.s
@@ -483,8 +477,8 @@ hash/htable.s: hash/htable.c.s
 
 # target to generate assembly for a file
 hash/htable.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/htable.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/htable.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/hash/htable.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/hash/htable.c.s
 .PHONY : hash/htable.c.s
 
 options.o: options.c.o
@@ -493,8 +487,8 @@ options.o: options.c.o
 
 # target to build an object file
 options.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/options.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/options.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/options.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/options.c.o
 .PHONY : options.c.o
 
 options.i: options.c.i
@@ -503,8 +497,8 @@ options.i: options.c.i
 
 # target to preprocess a source file
 options.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/options.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/options.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/options.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/options.c.i
 .PHONY : options.c.i
 
 options.s: options.c.s
@@ -513,8 +507,8 @@ options.s: options.c.s
 
 # target to generate assembly for a file
 options.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/options.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/options.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/options.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/options.c.s
 .PHONY : options.c.s
 
 output.o: output.c.o
@@ -523,8 +517,8 @@ output.o: output.c.o
 
 # target to build an object file
 output.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/output.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/output.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/output.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/output.c.o
 .PHONY : output.c.o
 
 output.i: output.c.i
@@ -533,8 +527,8 @@ output.i: output.c.i
 
 # target to preprocess a source file
 output.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/output.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/output.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/output.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/output.c.i
 .PHONY : output.c.i
 
 output.s: output.c.s
@@ -543,8 +537,8 @@ output.s: output.c.s
 
 # target to generate assembly for a file
 output.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/output.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/output.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/output.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/output.c.s
 .PHONY : output.c.s
 
 parson.o: parson.c.o
@@ -553,8 +547,8 @@ parson.o: parson.c.o
 
 # target to build an object file
 parson.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/parson.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/parson.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/parson.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/parson.c.o
 .PHONY : parson.c.o
 
 parson.i: parson.c.i
@@ -563,8 +557,8 @@ parson.i: parson.c.i
 
 # target to preprocess a source file
 parson.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/parson.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/parson.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/parson.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/parson.c.i
 .PHONY : parson.c.i
 
 parson.s: parson.c.s
@@ -573,8 +567,8 @@ parson.s: parson.c.s
 
 # target to generate assembly for a file
 parson.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/parson.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/parson.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/parson.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/parson.c.s
 .PHONY : parson.c.s
 
 portable.o: portable.c.o
@@ -583,8 +577,8 @@ portable.o: portable.c.o
 
 # target to build an object file
 portable.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/portable.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/portable.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/portable.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/portable.c.o
 .PHONY : portable.c.o
 
 portable.i: portable.c.i
@@ -593,8 +587,8 @@ portable.i: portable.c.i
 
 # target to preprocess a source file
 portable.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/portable.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/portable.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/portable.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/portable.c.i
 .PHONY : portable.c.i
 
 portable.s: portable.c.s
@@ -603,8 +597,8 @@ portable.s: portable.c.s
 
 # target to generate assembly for a file
 portable.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/portable.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/portable.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/portable.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/portable.c.s
 .PHONY : portable.c.s
 
 snapshot-file.o: snapshot-file.c.o
@@ -613,8 +607,8 @@ snapshot-file.o: snapshot-file.c.o
 
 # target to build an object file
 snapshot-file.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot-file.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot-file.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot-file.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot-file.c.o
 .PHONY : snapshot-file.c.o
 
 snapshot-file.i: snapshot-file.c.i
@@ -623,8 +617,8 @@ snapshot-file.i: snapshot-file.c.i
 
 # target to preprocess a source file
 snapshot-file.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot-file.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot-file.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot-file.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot-file.c.i
 .PHONY : snapshot-file.c.i
 
 snapshot-file.s: snapshot-file.c.s
@@ -633,8 +627,8 @@ snapshot-file.s: snapshot-file.c.s
 
 # target to generate assembly for a file
 snapshot-file.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot-file.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot-file.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot-file.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot-file.c.s
 .PHONY : snapshot-file.c.s
 
 snapshot.o: snapshot.c.o
@@ -643,8 +637,8 @@ snapshot.o: snapshot.c.o
 
 # target to build an object file
 snapshot.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot.c.o
 .PHONY : snapshot.c.o
 
 snapshot.i: snapshot.c.i
@@ -653,8 +647,8 @@ snapshot.i: snapshot.c.i
 
 # target to preprocess a source file
 snapshot.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot.c.i
 .PHONY : snapshot.c.i
 
 snapshot.s: snapshot.c.s
@@ -663,8 +657,8 @@ snapshot.s: snapshot.c.s
 
 # target to generate assembly for a file
 snapshot.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/snapshot.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/snapshot.c.s
 .PHONY : snapshot.c.s
 
 tld-tree.o: tld-tree.c.o
@@ -673,8 +667,8 @@ tld-tree.o: tld-tree.c.o
 
 # target to build an object file
 tld-tree.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld-tree.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld-tree.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld-tree.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld-tree.c.o
 .PHONY : tld-tree.c.o
 
 tld-tree.i: tld-tree.c.i
@@ -683,8 +677,8 @@ tld-tree.i: tld-tree.c.i
 
 # target to preprocess a source file
 tld-tree.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld-tree.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld-tree.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld-tree.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld-tree.c.i
 .PHONY : tld-tree.c.i
 
 tld-tree.s: tld-tree.c.s
@@ -693,8 +687,8 @@ tld-tree.s: tld-tree.c.s
 
 # target to generate assembly for a file
 tld-tree.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld-tree.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld-tree.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld-tree.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld-tree.c.s
 .PHONY : tld-tree.c.s
 
 tld.o: tld.c.o
@@ -703,8 +697,8 @@ tld.o: tld.c.o
 
 # target to build an object file
 tld.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld.c.o
 .PHONY : tld.c.o
 
 tld.i: tld.c.i
@@ -713,8 +707,8 @@ tld.i: tld.c.i
 
 # target to preprocess a source file
 tld.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld.c.i
 .PHONY : tld.c.i
 
 tld.s: tld.c.s
@@ -723,8 +717,8 @@ tld.s: tld.c.s
 
 # target to generate assembly for a file
 tld.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/tld.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/tld.c.s
 .PHONY : tld.c.s
 
 utils.o: utils.c.o
@@ -733,8 +727,8 @@ utils.o: utils.c.o
 
 # target to build an object file
 utils.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/utils.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/utils.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/utils.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/utils.c.o
 .PHONY : utils.c.o
 
 utils.i: utils.c.i
@@ -743,8 +737,8 @@ utils.i: utils.c.i
 
 # target to preprocess a source file
 utils.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/utils.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/utils.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/utils.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/utils.c.i
 .PHONY : utils.c.i
 
 utils.s: utils.c.s
@@ -753,8 +747,8 @@ utils.s: utils.c.s
 
 # target to generate assembly for a file
 utils.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/utils.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/utils.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/utils.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/utils.c.s
 .PHONY : utils.c.s
 
 webserver.o: webserver.c.o
@@ -763,8 +757,8 @@ webserver.o: webserver.c.o
 
 # target to build an object file
 webserver.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/webserver.c.o
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/webserver.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/webserver.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/webserver.c.o
 .PHONY : webserver.c.o
 
 webserver.i: webserver.c.i
@@ -773,8 +767,8 @@ webserver.i: webserver.c.i
 
 # target to preprocess a source file
 webserver.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/webserver.c.i
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/webserver.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/webserver.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/webserver.c.i
 .PHONY : webserver.c.i
 
 webserver.s: webserver.c.s
@@ -783,8 +777,8 @@ webserver.s: webserver.c.s
 
 # target to generate assembly for a file
 webserver.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/webserver.c.s
-	cd /home/fox/faup-master/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/webserver.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/webserver.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/lib/CMakeFiles/faup_static.dir/build.make src/lib/CMakeFiles/faup_static.dir/webserver.c.s
 .PHONY : webserver.c.s
 
 # Help Target
@@ -794,16 +788,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... test"
-	@echo "... install/local"
-	@echo "... faup_static"
-	@echo "... faupl"
-	@echo "... install"
-	@echo "... install/strip"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... package_source"
-	@echo "... edit_cache"
 	@echo "... package"
+	@echo "... edit_cache"
+	@echo "... package_source"
+	@echo "... rebuild_cache"
+	@echo "... faupl"
+	@echo "... list_install_components"
+	@echo "... install"
+	@echo "... faup_static"
+	@echo "... install/local"
 	@echo "... b64/cdecode.o"
 	@echo "... b64/cdecode.i"
 	@echo "... b64/cdecode.s"
@@ -872,6 +865,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

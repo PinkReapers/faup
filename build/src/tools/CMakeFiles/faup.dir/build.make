@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fox/faup-master
+CMAKE_SOURCE_DIR = /home/fox/faup_push
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fox/faup-master/build
+CMAKE_BINARY_DIR = /home/fox/faup_push/build
 
 # Include any dependencies generated for this target.
 include src/tools/CMakeFiles/faup.dir/depend.make
@@ -59,16 +59,16 @@ include src/tools/CMakeFiles/faup.dir/flags.make
 
 src/tools/CMakeFiles/faup.dir/faup.c.o: src/tools/CMakeFiles/faup.dir/flags.make
 src/tools/CMakeFiles/faup.dir/faup.c.o: ../src/tools/faup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fox/faup-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/tools/CMakeFiles/faup.dir/faup.c.o"
-	cd /home/fox/faup-master/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/faup.dir/faup.c.o   -c /home/fox/faup-master/src/tools/faup.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fox/faup_push/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/tools/CMakeFiles/faup.dir/faup.c.o"
+	cd /home/fox/faup_push/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/faup.dir/faup.c.o   -c /home/fox/faup_push/src/tools/faup.c
 
 src/tools/CMakeFiles/faup.dir/faup.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/faup.dir/faup.c.i"
-	cd /home/fox/faup-master/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fox/faup-master/src/tools/faup.c > CMakeFiles/faup.dir/faup.c.i
+	cd /home/fox/faup_push/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fox/faup_push/src/tools/faup.c > CMakeFiles/faup.dir/faup.c.i
 
 src/tools/CMakeFiles/faup.dir/faup.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/faup.dir/faup.c.s"
-	cd /home/fox/faup-master/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fox/faup-master/src/tools/faup.c -o CMakeFiles/faup.dir/faup.c.s
+	cd /home/fox/faup_push/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fox/faup_push/src/tools/faup.c -o CMakeFiles/faup.dir/faup.c.s
 
 src/tools/CMakeFiles/faup.dir/faup.c.o.requires:
 
@@ -83,16 +83,16 @@ src/tools/CMakeFiles/faup.dir/faup.c.o.provides.build: src/tools/CMakeFiles/faup
 
 src/tools/CMakeFiles/faup.dir/shell.c.o: src/tools/CMakeFiles/faup.dir/flags.make
 src/tools/CMakeFiles/faup.dir/shell.c.o: ../src/tools/shell.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fox/faup-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/tools/CMakeFiles/faup.dir/shell.c.o"
-	cd /home/fox/faup-master/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/faup.dir/shell.c.o   -c /home/fox/faup-master/src/tools/shell.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fox/faup_push/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/tools/CMakeFiles/faup.dir/shell.c.o"
+	cd /home/fox/faup_push/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/faup.dir/shell.c.o   -c /home/fox/faup_push/src/tools/shell.c
 
 src/tools/CMakeFiles/faup.dir/shell.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/faup.dir/shell.c.i"
-	cd /home/fox/faup-master/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fox/faup-master/src/tools/shell.c > CMakeFiles/faup.dir/shell.c.i
+	cd /home/fox/faup_push/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fox/faup_push/src/tools/shell.c > CMakeFiles/faup.dir/shell.c.i
 
 src/tools/CMakeFiles/faup.dir/shell.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/faup.dir/shell.c.s"
-	cd /home/fox/faup-master/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fox/faup-master/src/tools/shell.c -o CMakeFiles/faup.dir/shell.c.s
+	cd /home/fox/faup_push/build/src/tools && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fox/faup_push/src/tools/shell.c -o CMakeFiles/faup.dir/shell.c.s
 
 src/tools/CMakeFiles/faup.dir/shell.c.o.requires:
 
@@ -118,13 +118,34 @@ src/tools/faup: src/tools/CMakeFiles/faup.dir/shell.c.o
 src/tools/faup: src/tools/CMakeFiles/faup.dir/build.make
 src/tools/faup: src/lib/libfaupl.so.1
 src/tools/faup: src/tools/CMakeFiles/faup.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fox/faup-master/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable faup"
-	cd /home/fox/faup-master/build/src/tools && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/faup.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fox/faup_push/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable faup"
+	cd /home/fox/faup_push/build/src/tools && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/faup.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/tools/CMakeFiles/faup.dir/build: src/tools/faup
 
 .PHONY : src/tools/CMakeFiles/faup.dir/build
+
+# Object files for target faup
+faup_OBJECTS = \
+"CMakeFiles/faup.dir/faup.c.o" \
+"CMakeFiles/faup.dir/shell.c.o"
+
+# External object files for target faup
+faup_EXTERNAL_OBJECTS =
+
+src/tools/CMakeFiles/CMakeRelink.dir/faup: src/tools/CMakeFiles/faup.dir/faup.c.o
+src/tools/CMakeFiles/CMakeRelink.dir/faup: src/tools/CMakeFiles/faup.dir/shell.c.o
+src/tools/CMakeFiles/CMakeRelink.dir/faup: src/tools/CMakeFiles/faup.dir/build.make
+src/tools/CMakeFiles/CMakeRelink.dir/faup: src/lib/libfaupl.so.1
+src/tools/CMakeFiles/CMakeRelink.dir/faup: src/tools/CMakeFiles/faup.dir/relink.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fox/faup_push/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable CMakeFiles/CMakeRelink.dir/faup"
+	cd /home/fox/faup_push/build/src/tools && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/faup.dir/relink.txt --verbose=$(VERBOSE)
+
+# Rule to relink during preinstall.
+src/tools/CMakeFiles/faup.dir/preinstall: src/tools/CMakeFiles/CMakeRelink.dir/faup
+
+.PHONY : src/tools/CMakeFiles/faup.dir/preinstall
 
 src/tools/CMakeFiles/faup.dir/requires: src/tools/CMakeFiles/faup.dir/faup.c.o.requires
 src/tools/CMakeFiles/faup.dir/requires: src/tools/CMakeFiles/faup.dir/shell.c.o.requires
@@ -132,10 +153,10 @@ src/tools/CMakeFiles/faup.dir/requires: src/tools/CMakeFiles/faup.dir/shell.c.o.
 .PHONY : src/tools/CMakeFiles/faup.dir/requires
 
 src/tools/CMakeFiles/faup.dir/clean:
-	cd /home/fox/faup-master/build/src/tools && $(CMAKE_COMMAND) -P CMakeFiles/faup.dir/cmake_clean.cmake
+	cd /home/fox/faup_push/build/src/tools && $(CMAKE_COMMAND) -P CMakeFiles/faup.dir/cmake_clean.cmake
 .PHONY : src/tools/CMakeFiles/faup.dir/clean
 
 src/tools/CMakeFiles/faup.dir/depend:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fox/faup-master /home/fox/faup-master/src/tools /home/fox/faup-master/build /home/fox/faup-master/build/src/tools /home/fox/faup-master/build/src/tools/CMakeFiles/faup.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fox/faup_push /home/fox/faup_push/src/tools /home/fox/faup_push/build /home/fox/faup_push/build/src/tools /home/fox/faup_push/build/src/tools/CMakeFiles/faup.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/tools/CMakeFiles/faup.dir/depend
 

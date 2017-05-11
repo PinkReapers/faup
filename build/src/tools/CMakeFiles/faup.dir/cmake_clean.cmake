@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/faup.dir/shell.c.o"
   "faup.pdb"
   "faup"
+  "faup.pdb"
+  "CMakeFiles/CMakeRelink.dir/faup"
 )
 
 # Per-language clean rules from dependency scanning.

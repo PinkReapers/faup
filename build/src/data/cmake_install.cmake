@@ -1,4 +1,4 @@
-# Install script for directory: /home/fox/faup-master/src/data
+# Install script for directory: /home/fox/faup_push/src/data
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/faup" TYPE FILE FILES
-    "/home/fox/faup-master/src/data/mozilla.tlds"
-    "/home/fox/faup-master/src/data/README.txt"
+    "/home/fox/faup_push/src/data/mozilla.tlds"
+    "/home/fox/faup_push/src/data/README.txt"
     )
 endif()
 

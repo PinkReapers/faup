@@ -19,9 +19,9 @@ src/tools/CMakeFiles/faup.dir/faup.c.o
  ../src/lib/include/faup/tld-tree.h
  ../src/lib/include/faup/tld.h
  ../src/lib/include/faup/webserver.h
- /home/fox/faup-master/src/tools/faup.c
- /home/fox/faup-master/src/tools/shell.h
- /home/fox/faup-master/src/tools/win32-getopt.h
+ /home/fox/faup_push/src/tools/faup.c
+ /home/fox/faup_push/src/tools/shell.h
+ /home/fox/faup_push/src/tools/win32-getopt.h
  src/lib/include/faup/version.h
 src/tools/CMakeFiles/faup.dir/shell.c.o
  ../src/lib/include/faup/datadir.h
@@ -39,6 +39,6 @@ src/tools/CMakeFiles/faup.dir/shell.c.o
  ../src/lib/include/faup/snapshot.h
  ../src/lib/include/faup/tld-tree.h
  ../src/lib/include/faup/tld.h
- /home/fox/faup-master/src/tools/browse.h
- /home/fox/faup-master/src/tools/shell.c
+ /home/fox/faup_push/src/tools/browse.h
+ /home/fox/faup_push/src/tools/shell.c
  src/lib/include/faup/version.h

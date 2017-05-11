@@ -1,1 +1,1 @@
-/usr/bin/cc  -g   CMakeFiles/json-tester.dir/json-tester.c.o  -o json-tester -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup-master/build/src/lib 
+/usr/bin/cc  -g   CMakeFiles/json-tester.dir/json-tester.c.o  -o json-tester -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup_push/build/src/lib 

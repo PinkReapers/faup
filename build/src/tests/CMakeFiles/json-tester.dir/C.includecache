@@ -88,7 +88,7 @@ faup/faup.h
 
 ../src/lib/include/faup/tld.h
 
-/home/fox/faup-master/src/tests/json-tester.c
+/home/fox/faup_push/src/tests/json-tester.c
 stdio.h
 -
 stdlib.h

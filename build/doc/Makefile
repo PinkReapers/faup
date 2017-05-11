@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fox/faup-master
+CMAKE_SOURCE_DIR = /home/fox/faup_push
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fox/faup-master/build
+CMAKE_BINARY_DIR = /home/fox/faup_push/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,7 +70,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/fox/faup-master/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/fox/faup_push/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -92,35 +92,13 @@ edit_cache/fast: edit_cache
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/fox/faup-master/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup-master/build/CPackSourceConfig.cmake
+	cd /home/fox/faup_push/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup_push/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
 package_source/fast: package_source
 
 .PHONY : package_source/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -133,15 +111,16 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Application\" \"Headers\" \"Libraries\" \"Unspecified\" \"doc\""
-.PHONY : list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : list_install_components/fast
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install
 install: preinstall
@@ -155,16 +134,26 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Application\" \"Headers\" \"Libraries\" \"Unspecified\" \"doc\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles /home/fox/faup-master/build/doc/CMakeFiles/progress.marks
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 doc/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles 0
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles /home/fox/faup_push/build/doc/CMakeFiles/progress.marks
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 doc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 doc/clean
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 doc/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,17 +163,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 doc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -197,11 +186,10 @@ help:
 	@echo "... package"
 	@echo "... edit_cache"
 	@echo "... package_source"
-	@echo "... rebuild_cache"
-	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... list_install_components"
+	@echo "... rebuild_cache"
 	@echo "... install"
+	@echo "... list_install_components"
 .PHONY : help
 
 
@@ -213,6 +201,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

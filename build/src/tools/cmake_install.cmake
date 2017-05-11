@@ -1,4 +1,4 @@
-# Install script for directory: /home/fox/faup-master/src/tools
+# Install script for directory: /home/fox/faup_push/src/tools
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,12 +33,6 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Application")
-  if(EXISTS "$ENV{DESTDIR}/usr/local/bin/faup" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/bin/faup")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/usr/local/bin/faup"
-         RPATH "")
-  endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/usr/local/bin/faup")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -47,16 +41,6 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Applica
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local/bin" TYPE EXECUTABLE FILES "/home/fox/faup-master/build/src/tools/faup")
-  if(EXISTS "$ENV{DESTDIR}/usr/local/bin/faup" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/bin/faup")
-    file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/usr/local/bin/faup"
-         OLD_RPATH "/home/fox/faup-master/build/src/lib:"
-         NEW_RPATH "")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/local/bin/faup")
-    endif()
-  endif()
+file(INSTALL DESTINATION "/usr/local/bin" TYPE EXECUTABLE FILES "/home/fox/faup_push/build/src/tools/CMakeFiles/CMakeRelink.dir/faup")
 endif()
 

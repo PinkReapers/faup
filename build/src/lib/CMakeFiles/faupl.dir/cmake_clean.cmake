@@ -21,6 +21,9 @@ file(REMOVE_RECURSE
   "libfaupl.pdb"
   "libfaupl.so"
   "libfaupl.so.1"
+  "libfaupl.pdb"
+  "CMakeFiles/CMakeRelink.dir/libfaupl.so"
+  "CMakeFiles/CMakeRelink.dir/libfaupl.so.1"
 )
 
 # Per-language clean rules from dependency scanning.

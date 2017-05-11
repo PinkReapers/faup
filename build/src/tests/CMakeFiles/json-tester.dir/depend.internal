@@ -13,5 +13,5 @@ src/tests/CMakeFiles/json-tester.dir/json-tester.c.o
  ../src/lib/include/faup/portable.h
  ../src/lib/include/faup/tld-tree.h
  ../src/lib/include/faup/tld.h
- /home/fox/faup-master/src/tests/json-tester.c
+ /home/fox/faup_push/src/tests/json-tester.c
  src/lib/include/faup/version.h

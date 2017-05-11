@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/fox/faup-master/src/tests/decode-tester.c" "/home/fox/faup-master/build/src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.o"
+  "/home/fox/faup_push/src/tests/decode-tester.c" "/home/fox/faup_push/build/src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -26,7 +26,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/fox/faup-master/build/src/lib/CMakeFiles/faupl.dir/DependInfo.cmake"
+  "/home/fox/faup_push/build/src/lib/CMakeFiles/faupl.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

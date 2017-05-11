@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/fox/faup-master
-BuildDirectory: /home/fox/faup-master/build
+SourceDirectory: /home/fox/faup_push
+BuildDirectory: /home/fox/faup_push/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -33,7 +33,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/fox/faup-master"
+ConfigureCommand: "/usr/bin/cmake" "/home/fox/faup_push"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -63,9 +63,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
 Compiler: /usr/bin/c++

@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/faup.dir/faup.c.o CMakeFiles/faup.dir/shell.c.o  -o CMakeFiles/CMakeRelink.dir/faup -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread 

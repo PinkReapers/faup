@@ -1,4 +1,4 @@
-# Install script for directory: /home/fox/faup-master/src/lib/modules
+# Install script for directory: /home/fox/faup_push/src/lib/modules
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/faup/modules_available" TYPE FILE FILES
-    "/home/fox/faup-master/src/lib/modules/emulation_ie.lua"
-    "/home/fox/faup-master/src/lib/modules/printcsv.lua"
-    "/home/fox/faup-master/src/lib/modules/redis-url-threatintel.lua"
-    "/home/fox/faup-master/src/lib/modules/writeall.lua"
-    "/home/fox/faup-master/src/lib/modules/writeinput.lua"
-    "/home/fox/faup-master/src/lib/modules/uppercase.lua"
+    "/home/fox/faup_push/src/lib/modules/emulation_ie.lua"
+    "/home/fox/faup_push/src/lib/modules/printcsv.lua"
+    "/home/fox/faup_push/src/lib/modules/redis-url-threatintel.lua"
+    "/home/fox/faup_push/src/lib/modules/writeall.lua"
+    "/home/fox/faup_push/src/lib/modules/writeinput.lua"
+    "/home/fox/faup_push/src/lib/modules/uppercase.lua"
     )
 endif()
 

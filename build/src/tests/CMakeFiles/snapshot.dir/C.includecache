@@ -104,7 +104,7 @@ faup/faup.h
 
 ../src/lib/include/faup/tld.h
 
-/home/fox/faup-master/src/tests/snapshot.c
+/home/fox/faup_push/src/tests/snapshot.c
 stdio.h
 -
 faup/snapshot.h

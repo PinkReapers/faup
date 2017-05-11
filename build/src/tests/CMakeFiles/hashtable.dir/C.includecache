@@ -24,7 +24,7 @@ stdbool.h
 stdlib.h
 -
 
-/home/fox/faup-master/src/tests/hashtable.c
+/home/fox/faup_push/src/tests/hashtable.c
 stdio.h
 -
 string.h

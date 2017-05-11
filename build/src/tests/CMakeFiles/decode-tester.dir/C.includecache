@@ -94,7 +94,7 @@ faup/faup.h
 
 ../src/lib/include/faup/tld.h
 
-/home/fox/faup-master/src/tests/decode-tester.c
+/home/fox/faup_push/src/tests/decode-tester.c
 stdio.h
 -
 string.h

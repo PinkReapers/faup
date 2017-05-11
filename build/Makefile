@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fox/faup-master
+CMAKE_SOURCE_DIR = /home/fox/faup_push
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fox/faup-master/build
+CMAKE_BINARY_DIR = /home/fox/faup_push/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,17 +100,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
@@ -136,7 +125,7 @@ install/local/fast: install/local
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup-master/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup_push/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -157,9 +146,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles /home/fox/faup-master/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles /home/fox/faup_push/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -552,6 +541,24 @@ ContinuousUpdate/fast:
 .PHONY : ContinuousUpdate/fast
 
 #=============================================================================
+# Target rules for targets named faupl
+
+# Build rule for target.
+faupl: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 faupl
+.PHONY : faupl
+
+# fast build rule for target.
+faupl/fast:
+	$(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/build
+.PHONY : faupl/fast
+
+# Manual pre-install relink rule for target.
+faupl/preinstall:
+	$(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/preinstall
+.PHONY : faupl/preinstall
+
+#=============================================================================
 # Target rules for targets named faup_static
 
 # Build rule for target.
@@ -565,19 +572,6 @@ faup_static/fast:
 .PHONY : faup_static/fast
 
 #=============================================================================
-# Target rules for targets named faupl
-
-# Build rule for target.
-faupl: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 faupl
-.PHONY : faupl
-
-# fast build rule for target.
-faupl/fast:
-	$(MAKE) -f src/lib/CMakeFiles/faupl.dir/build.make src/lib/CMakeFiles/faupl.dir/build
-.PHONY : faupl/fast
-
-#=============================================================================
 # Target rules for targets named faup
 
 # Build rule for target.
@@ -589,6 +583,11 @@ faup: cmake_check_build_system
 faup/fast:
 	$(MAKE) -f src/tools/CMakeFiles/faup.dir/build.make src/tools/CMakeFiles/faup.dir/build
 .PHONY : faup/fast
+
+# Manual pre-install relink rule for target.
+faup/preinstall:
+	$(MAKE) -f src/tools/CMakeFiles/faup.dir/build.make src/tools/CMakeFiles/faup.dir/preinstall
+.PHONY : faup/preinstall
 
 #=============================================================================
 # Target rules for targets named json-tester
@@ -665,7 +664,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
 	@echo "... install"
-	@echo "... install/strip"
 	@echo "... ContinuousSubmit"
 	@echo "... ContinuousCoverage"
 	@echo "... ContinuousTest"
@@ -698,8 +696,8 @@ help:
 	@echo "... ExperimentalSubmit"
 	@echo "... ContinuousStart"
 	@echo "... ContinuousUpdate"
-	@echo "... faup_static"
 	@echo "... faupl"
+	@echo "... faup_static"
 	@echo "... faup"
 	@echo "... json-tester"
 	@echo "... hashtable"

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fox/faup-master
+CMAKE_SOURCE_DIR = /home/fox/faup_push
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fox/faup-master/build
+CMAKE_BINARY_DIR = /home/fox/faup_push/build
 
 # Utility rule file for ExperimentalTest.
 
@@ -71,6 +71,6 @@ CMakeFiles/ExperimentalTest.dir/clean:
 .PHONY : CMakeFiles/ExperimentalTest.dir/clean
 
 CMakeFiles/ExperimentalTest.dir/depend:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fox/faup-master /home/fox/faup-master /home/fox/faup-master/build /home/fox/faup-master/build /home/fox/faup-master/build/CMakeFiles/ExperimentalTest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fox/faup_push /home/fox/faup_push /home/fox/faup_push/build /home/fox/faup_push/build /home/fox/faup_push/build/CMakeFiles/ExperimentalTest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ExperimentalTest.dir/depend
 

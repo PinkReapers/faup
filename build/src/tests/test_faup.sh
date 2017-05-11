@@ -23,11 +23,11 @@
 # $ ./add_url.sh http://www.test.com/myweirdurl
 # It will basically add http://www.test.com/myweirdurl to urls.txt, and the output of faup to urls.txt.ref
 
-SRC_TEST_DIR="/home/fox/faup-master/src/tests"
-BIN_TEST_DIR="/home/fox/faup-master/build/src/tests"
-FAUP_DATA_DIR="/home/fox/faup-master/src/data"
-FAUP_MODULES_DIR="/home/fox/faup-master/src/lib/modules"
-FAUP_TOOL="/home/fox/faup-master/build/src/tools/faup"
+SRC_TEST_DIR="/home/fox/faup_push/src/tests"
+BIN_TEST_DIR="/home/fox/faup_push/build/src/tests"
+FAUP_DATA_DIR="/home/fox/faup_push/src/data"
+FAUP_MODULES_DIR="/home/fox/faup_push/src/lib/modules"
+FAUP_TOOL="/home/fox/faup_push/build/src/tools/faup"
 
 URLS="$SRC_TEST_DIR/urls.txt"
 URLS_CMP="$BIN_TEST_DIR/urls.txt.cmp"

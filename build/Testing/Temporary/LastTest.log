@@ -1,117 +1,117 @@
-Start testing: May 11 20:41 CEST
+Start testing: May 11 21:04 CEST
 ----------------------------------------------------------
 1/12 Testing: Url_Argument
 1/12 Test: Url_Argument
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "Url_Argument"
-Directory: /home/fox/faup-master/build/src/tests
-"Url_Argument" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "Url_Argument"
+Directory: /home/fox/faup_push/build/src/tests
+"Url_Argument" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
-/home/fox/faup-master/build/src/tools/faup http://foo:bar@www3.altavista.digital.com:8080/index.php1?tada=da&fremo=genial#anchor1234 > /home/fox/faup-master/build/src/tests/urls.txt.cmp
+/home/fox/faup_push/build/src/tools/faup http://foo:bar@www3.altavista.digital.com:8080/index.php1?tada=da&fremo=genial#anchor1234 > /home/fox/faup_push/build/src/tests/urls.txt.cmp
 <end of output>
 Test time =   0.13 sec
 ----------------------------------------------------------
 Test Passed.
-"Url_Argument" end time: May 11 20:41 CEST
+"Url_Argument" end time: May 11 21:04 CEST
 "Url_Argument" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 2/12 Testing: File_Argument
 2/12 Test: File_Argument
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "File_Argument"
-Directory: /home/fox/faup-master/build/src/tests
-"File_Argument" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "File_Argument"
+Directory: /home/fox/faup_push/build/src/tests
+"File_Argument" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
-/home/fox/faup-master/build/src/tools/faup /home/fox/faup-master/src/tests/someurls.txt > /home/fox/faup-master/build/src/tests/urls.txt.cmp
+/home/fox/faup_push/build/src/tools/faup /home/fox/faup_push/src/tests/someurls.txt > /home/fox/faup_push/build/src/tests/urls.txt.cmp
 <end of output>
-Test time =   0.11 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"File_Argument" end time: May 11 20:41 CEST
+"File_Argument" end time: May 11 21:04 CEST
 "File_Argument" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 3/12 Testing: Issue24
 3/12 Test: Issue24
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "24"
-Directory: /home/fox/faup-master/build/src/tests
-"Issue24" start time: May 11 20:41 CEST
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.13 sec
-----------------------------------------------------------
-Test Passed.
-"Issue24" end time: May 11 20:41 CEST
-"Issue24" time elapsed: 00:00:00
-----------------------------------------------------------
-
-4/12 Testing: Issue27
-4/12 Test: Issue27
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "27"
-Directory: /home/fox/faup-master/build/src/tests
-"Issue27" start time: May 11 20:41 CEST
-Output:
-----------------------------------------------------------
-<end of output>
-Test time =   0.14 sec
-----------------------------------------------------------
-Test Passed.
-"Issue27" end time: May 11 20:41 CEST
-"Issue27" time elapsed: 00:00:00
-----------------------------------------------------------
-
-5/12 Testing: Issue28
-5/12 Test: Issue28
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "28"
-Directory: /home/fox/faup-master/build/src/tests
-"Issue28" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "issue" "24"
+Directory: /home/fox/faup_push/build/src/tests
+"Issue24" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"Issue28" end time: May 11 20:41 CEST
+"Issue24" end time: May 11 21:04 CEST
+"Issue24" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/12 Testing: Issue27
+4/12 Test: Issue27
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "issue" "27"
+Directory: /home/fox/faup_push/build/src/tests
+"Issue27" start time: May 11 21:04 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"Issue27" end time: May 11 21:04 CEST
+"Issue27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/12 Testing: Issue28
+5/12 Test: Issue28
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "issue" "28"
+Directory: /home/fox/faup_push/build/src/tests
+"Issue28" start time: May 11 21:04 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"Issue28" end time: May 11 21:04 CEST
 "Issue28" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 6/12 Testing: Issue30
 6/12 Test: Issue30
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "30"
-Directory: /home/fox/faup-master/build/src/tests
-"Issue30" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "issue" "30"
+Directory: /home/fox/faup_push/build/src/tests
+"Issue30" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.11 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"Issue30" end time: May 11 20:41 CEST
+"Issue30" end time: May 11 21:04 CEST
 "Issue30" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 7/12 Testing: Issue69
 7/12 Test: Issue69
-Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "69"
-Directory: /home/fox/faup-master/build/src/tests
-"Issue69" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/test_faup.sh" "issue" "69"
+Directory: /home/fox/faup_push/build/src/tests
+"Issue69" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.11 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"Issue69" end time: May 11 20:41 CEST
+"Issue69" end time: May 11 21:04 CEST
 "Issue69" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 8/12 Testing: Issue36
 8/12 Test: Issue36
-Command: "/home/fox/faup-master/build/src/tests/issue36"
-Directory: /home/fox/faup-master/build/src/tests
-"Issue36" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/issue36"
+Directory: /home/fox/faup_push/build/src/tests
+"Issue36" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 The tld array has already been populated!
@@ -120,15 +120,15 @@ Error with faup_tld_array_populate from faup_tld_tree_new; Symptom: double initi
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"Issue36" end time: May 11 20:41 CEST
+"Issue36" end time: May 11 21:04 CEST
 "Issue36" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 9/12 Testing: Snapshot
 9/12 Test: Snapshot
-Command: "/home/fox/faup-master/build/src/tests/snapshot"
-Directory: /home/fox/faup-master/build/src/tests
-"Snapshot" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/snapshot"
+Directory: /home/fox/faup_push/build/src/tests
+"Snapshot" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 The snapshot test.urls already exists!
@@ -141,19 +141,19 @@ Creating snapshort test
 ** 	key:foo
 ** 	length:1
 **		value:->bar<-
-**		first time seen: Thu May 11 20:41:28 2017
-**		last time seen: Thu May 11 20:41:28 2017
+**		first time seen: Thu May 11 21:04:51 2017
+**		last time seen: Thu May 11 21:04:51 2017
 **		count:1
 ** 	item
 ** 	key:ahah
 ** 	length:2
 **		value:->ihih<-
-**		first time seen: Thu May 11 20:41:28 2017
-**		last time seen: Thu May 11 20:41:28 2017
+**		first time seen: Thu May 11 21:04:51 2017
+**		last time seen: Thu May 11 21:04:51 2017
 **		count:2
 **		value:->hehe<-
-**		first time seen: Thu May 11 20:41:28 2017
-**		last time seen: Thu May 11 20:41:28 2017
+**		first time seen: Thu May 11 21:04:51 2017
+**		last time seen: Thu May 11 21:04:51 2017
 **		count:1
 Snapshot closed
 ** Snapshot debug:
@@ -184,15 +184,15 @@ Snapshot closed
 ** 	key:ahah
 ** 	length:1
 **		value:->mouarf<-
-**		first time seen: Thu May 11 20:41:28 2017
-**		last time seen: Thu May 11 20:41:28 2017
+**		first time seen: Thu May 11 21:04:51 2017
+**		last time seen: Thu May 11 21:04:51 2017
 **		count:1
 ** 	item
 ** 	key:foo
 ** 	length:1
 **		value:->bar<-
-**		first time seen: Thu May 11 20:41:28 2017
-**		last time seen: Thu May 11 20:41:28 2017
+**		first time seen: Thu May 11 21:04:51 2017
+**		last time seen: Thu May 11 21:04:51 2017
 **		count:1
 
 Comparison function:
@@ -216,15 +216,15 @@ Comparison function:
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Snapshot" end time: May 11 20:41 CEST
+"Snapshot" end time: May 11 21:04 CEST
 "Snapshot" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 10/12 Testing: Hashtable
 10/12 Test: Hashtable
-Command: "/home/fox/faup-master/build/src/tests/hashtable"
-Directory: /home/fox/faup-master/build/src/tests
-"Hashtable" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/hashtable"
+Directory: /home/fox/faup_push/build/src/tests
+"Hashtable" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 Not found
@@ -232,15 +232,15 @@ Not found
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Hashtable" end time: May 11 20:41 CEST
+"Hashtable" end time: May 11 21:04 CEST
 "Hashtable" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 11/12 Testing: JsonURLsTester
 11/12 Test: JsonURLsTester
-Command: "/home/fox/faup-master/build/src/tests/json-tester" "/home/fox/faup-master/src/tests/urls.json"
-Directory: /home/fox/faup-master/build/src/tests
-"JsonURLsTester" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/json-tester" "/home/fox/faup_push/src/tests/urls.json"
+Directory: /home/fox/faup_push/build/src/tests
+"JsonURLsTester" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 testing url: 'http://!vars'
@@ -780,23 +780,23 @@ testing url: 'epsg.org#4326'
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"JsonURLsTester" end time: May 11 20:41 CEST
+"JsonURLsTester" end time: May 11 21:04 CEST
 "JsonURLsTester" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 12/12 Testing: DecodeTester
 12/12 Test: DecodeTester
-Command: "/home/fox/faup-master/build/src/tests/decode-tester"
-Directory: /home/fox/faup-master/build/src/tests
-"DecodeTester" start time: May 11 20:41 CEST
+Command: "/home/fox/faup_push/build/src/tests/decode-tester"
+Directory: /home/fox/faup_push/build/src/tests
+"DecodeTester" start time: May 11 21:04 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
-Test Failed.
-"DecodeTester" end time: May 11 20:41 CEST
+Test Passed.
+"DecodeTester" end time: May 11 21:04 CEST
 "DecodeTester" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 11 20:41 CEST
+End testing: May 11 21:04 CEST

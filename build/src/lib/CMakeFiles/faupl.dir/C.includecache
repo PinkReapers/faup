@@ -186,15 +186,15 @@ faup/faup.h
 faup/civetweb/civetweb.h
 -
 
-/home/fox/faup-master/src/lib/b64/cdecode.c
+/home/fox/faup_push/src/lib/b64/cdecode.c
 faup/b64/cdecode.h
 -
 
-/home/fox/faup-master/src/lib/b64/cencode.c
+/home/fox/faup_push/src/lib/b64/cencode.c
 faup/b64/cencode.h
 -
 
-/home/fox/faup-master/src/lib/civetweb/civetweb.c
+/home/fox/faup_push/src/lib/civetweb/civetweb.c
 ws2tcpip.h
 -
 sys/types.h
@@ -268,21 +268,21 @@ pthread.h
 faup/civetweb/civetweb.h
 -
 md5.inl
-/home/fox/faup-master/src/lib/civetweb/md5.inl
+/home/fox/faup_push/src/lib/civetweb/md5.inl
 openssl/ssl.h
 -
 openssl/err.h
 -
 mod_lua.inl
-/home/fox/faup-master/src/lib/civetweb/mod_lua.inl
+/home/fox/faup_push/src/lib/civetweb/mod_lua.inl
 solarisfixes.h
-/home/fox/faup-master/src/lib/civetweb/solarisfixes.h
+/home/fox/faup_push/src/lib/civetweb/solarisfixes.h
 
-/home/fox/faup-master/src/lib/civetweb/md5.inl
+/home/fox/faup_push/src/lib/civetweb/md5.inl
 string.h
 -
 
-/home/fox/faup-master/src/lib/datadir.c
+/home/fox/faup_push/src/lib/datadir.c
 stdio.h
 -
 stdlib.h
@@ -302,7 +302,7 @@ faup/faup.h
 faup/datadir.h
 -
 
-/home/fox/faup-master/src/lib/decode.c
+/home/fox/faup_push/src/lib/decode.c
 faup/faup.h
 -
 faup/decode.h
@@ -324,7 +324,7 @@ stdlib.h
 ctype.h
 -
 
-/home/fox/faup-master/src/lib/faup.c
+/home/fox/faup_push/src/lib/faup.c
 faup/faup.h
 -
 faup/modules.h
@@ -332,7 +332,7 @@ faup/modules.h
 stdlib.h
 -
 
-/home/fox/faup-master/src/lib/features.c
+/home/fox/faup_push/src/lib/features.c
 stdio.h
 -
 ctype.h
@@ -344,7 +344,7 @@ faup/faup.h
 faup/features.h
 -
 
-/home/fox/faup-master/src/lib/hash/hash.c
+/home/fox/faup_push/src/lib/hash/hash.c
 faup/endian.h
 -
 stdio.h
@@ -360,7 +360,7 @@ endian.h
 faup/hash/hash.h
 -
 
-/home/fox/faup-master/src/lib/hash/htable.c
+/home/fox/faup_push/src/lib/hash/htable.c
 faup/hash/htable.h
 -
 faup/compiler.h
@@ -374,7 +374,7 @@ stdbool.h
 assert.h
 -
 
-/home/fox/faup-master/src/lib/miniz.c
+/home/fox/faup_push/src/lib/miniz.c
 stdlib.h
 -
 time.h
@@ -398,7 +398,7 @@ utime.h
 utime.h
 -
 
-/home/fox/faup-master/src/lib/options.c
+/home/fox/faup_push/src/lib/options.c
 stdlib.h
 -
 faup/tld-tree.h
@@ -406,7 +406,7 @@ faup/tld-tree.h
 faup/options.h
 -
 
-/home/fox/faup-master/src/lib/output.c
+/home/fox/faup_push/src/lib/output.c
 stdio.h
 -
 stdlib.h
@@ -420,7 +420,7 @@ faup/output.h
 faup/modules.h
 -
 
-/home/fox/faup-master/src/lib/parson.c
+/home/fox/faup_push/src/lib/parson.c
 faup/parson.h
 -
 stdio.h
@@ -434,11 +434,11 @@ ctype.h
 math.h
 -
 
-/home/fox/faup-master/src/lib/portable.c
+/home/fox/faup_push/src/lib/portable.c
 string.h
 -
 
-/home/fox/faup-master/src/lib/snapshot-file.c
+/home/fox/faup_push/src/lib/snapshot-file.c
 stdio.h
 -
 string.h
@@ -464,9 +464,9 @@ faup/snapshot-file.h
 faup/utils.h
 -
 miniz.c
-/home/fox/faup-master/src/lib/miniz.c
+/home/fox/faup_push/src/lib/miniz.c
 
-/home/fox/faup-master/src/lib/snapshot.c
+/home/fox/faup_push/src/lib/snapshot.c
 stdio.h
 -
 sys/stat.h
@@ -484,7 +484,7 @@ faup/faup.h
 faup/snapshot.h
 -
 
-/home/fox/faup-master/src/lib/tld-tree.c
+/home/fox/faup_push/src/lib/tld-tree.c
 stdio.h
 -
 stdlib.h
@@ -500,7 +500,7 @@ faup/tld-tree.h
 faup/utarray.h
 -
 
-/home/fox/faup-master/src/lib/tld.c
+/home/fox/faup_push/src/lib/tld.c
 winsock2.h
 -
 netinet/in.h
@@ -534,7 +534,7 @@ faup/compat.h
 faup/utarray.h
 -
 
-/home/fox/faup-master/src/lib/utils.c
+/home/fox/faup_push/src/lib/utils.c
 ftw.h
 -
 stdio.h
@@ -550,7 +550,7 @@ faup/faup.h
 faup/utils.h
 -
 
-/home/fox/faup-master/src/lib/webserver.c
+/home/fox/faup_push/src/lib/webserver.c
 Windows.h
 -
 unistd.h

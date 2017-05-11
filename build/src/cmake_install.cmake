@@ -1,4 +1,4 @@
-# Install script for directory: /home/fox/faup-master/src
+# Install script for directory: /home/fox/faup_push/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,10 +34,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/fox/faup-master/build/src/data/cmake_install.cmake")
-  include("/home/fox/faup-master/build/src/lib/cmake_install.cmake")
-  include("/home/fox/faup-master/build/src/tools/cmake_install.cmake")
-  include("/home/fox/faup-master/build/src/tests/cmake_install.cmake")
+  include("/home/fox/faup_push/build/src/data/cmake_install.cmake")
+  include("/home/fox/faup_push/build/src/lib/cmake_install.cmake")
+  include("/home/fox/faup_push/build/src/tools/cmake_install.cmake")
+  include("/home/fox/faup_push/build/src/tests/cmake_install.cmake")
 
 endif()
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fox/faup-master
+CMAKE_SOURCE_DIR = /home/fox/faup_push
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fox/faup-master/build
+CMAKE_BINARY_DIR = /home/fox/faup_push/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,7 +70,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/fox/faup-master/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/fox/faup_push/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -88,17 +88,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/fox/faup-master/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup-master/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -134,17 +123,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Application\" \"Headers\" \"Libraries\" \"Unspecified\" \"doc\""
@@ -155,16 +133,27 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	cd /home/fox/faup_push/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/fox/faup_push/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+
+.PHONY : package_source/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles /home/fox/faup-master/build/src/tests/CMakeFiles/progress.marks
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup-master/build/CMakeFiles 0
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles /home/fox/faup_push/build/src/tests/CMakeFiles/progress.marks
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/faup_push/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/clean
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,22 +163,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/preinstall
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/preinstall
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/tests/CMakeFiles/json-tester.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/json-tester.dir/rule
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/json-tester.dir/rule
 .PHONY : src/tests/CMakeFiles/json-tester.dir/rule
 
 # Convenience name for target.
@@ -199,12 +188,12 @@ json-tester: src/tests/CMakeFiles/json-tester.dir/rule
 
 # fast build rule for target.
 json-tester/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/build
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/build
 .PHONY : json-tester/fast
 
 # Convenience name for target.
 src/tests/CMakeFiles/hashtable.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/hashtable.dir/rule
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/hashtable.dir/rule
 .PHONY : src/tests/CMakeFiles/hashtable.dir/rule
 
 # Convenience name for target.
@@ -214,12 +203,12 @@ hashtable: src/tests/CMakeFiles/hashtable.dir/rule
 
 # fast build rule for target.
 hashtable/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/build
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/build
 .PHONY : hashtable/fast
 
 # Convenience name for target.
 src/tests/CMakeFiles/snapshot.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/snapshot.dir/rule
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/snapshot.dir/rule
 .PHONY : src/tests/CMakeFiles/snapshot.dir/rule
 
 # Convenience name for target.
@@ -229,12 +218,12 @@ snapshot: src/tests/CMakeFiles/snapshot.dir/rule
 
 # fast build rule for target.
 snapshot/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/build
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/build
 .PHONY : snapshot/fast
 
 # Convenience name for target.
 src/tests/CMakeFiles/issue36.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/issue36.dir/rule
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/issue36.dir/rule
 .PHONY : src/tests/CMakeFiles/issue36.dir/rule
 
 # Convenience name for target.
@@ -244,12 +233,12 @@ issue36: src/tests/CMakeFiles/issue36.dir/rule
 
 # fast build rule for target.
 issue36/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/build
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/build
 .PHONY : issue36/fast
 
 # Convenience name for target.
 src/tests/CMakeFiles/decode-tester.dir/rule:
-	cd /home/fox/faup-master/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/decode-tester.dir/rule
+	cd /home/fox/faup_push/build && $(MAKE) -f CMakeFiles/Makefile2 src/tests/CMakeFiles/decode-tester.dir/rule
 .PHONY : src/tests/CMakeFiles/decode-tester.dir/rule
 
 # Convenience name for target.
@@ -259,7 +248,7 @@ decode-tester: src/tests/CMakeFiles/decode-tester.dir/rule
 
 # fast build rule for target.
 decode-tester/fast:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/build
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/build
 .PHONY : decode-tester/fast
 
 decode-tester.o: decode-tester.c.o
@@ -268,7 +257,7 @@ decode-tester.o: decode-tester.c.o
 
 # target to build an object file
 decode-tester.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.o
 .PHONY : decode-tester.c.o
 
 decode-tester.i: decode-tester.c.i
@@ -277,7 +266,7 @@ decode-tester.i: decode-tester.c.i
 
 # target to preprocess a source file
 decode-tester.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.i
 .PHONY : decode-tester.c.i
 
 decode-tester.s: decode-tester.c.s
@@ -286,7 +275,7 @@ decode-tester.s: decode-tester.c.s
 
 # target to generate assembly for a file
 decode-tester.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/decode-tester.dir/build.make src/tests/CMakeFiles/decode-tester.dir/decode-tester.c.s
 .PHONY : decode-tester.c.s
 
 hashtable.o: hashtable.c.o
@@ -295,7 +284,7 @@ hashtable.o: hashtable.c.o
 
 # target to build an object file
 hashtable.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/hashtable.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/hashtable.c.o
 .PHONY : hashtable.c.o
 
 hashtable.i: hashtable.c.i
@@ -304,7 +293,7 @@ hashtable.i: hashtable.c.i
 
 # target to preprocess a source file
 hashtable.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/hashtable.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/hashtable.c.i
 .PHONY : hashtable.c.i
 
 hashtable.s: hashtable.c.s
@@ -313,7 +302,7 @@ hashtable.s: hashtable.c.s
 
 # target to generate assembly for a file
 hashtable.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/hashtable.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/hashtable.dir/build.make src/tests/CMakeFiles/hashtable.dir/hashtable.c.s
 .PHONY : hashtable.c.s
 
 issue36.o: issue36.c.o
@@ -322,7 +311,7 @@ issue36.o: issue36.c.o
 
 # target to build an object file
 issue36.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/issue36.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/issue36.c.o
 .PHONY : issue36.c.o
 
 issue36.i: issue36.c.i
@@ -331,7 +320,7 @@ issue36.i: issue36.c.i
 
 # target to preprocess a source file
 issue36.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/issue36.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/issue36.c.i
 .PHONY : issue36.c.i
 
 issue36.s: issue36.c.s
@@ -340,7 +329,7 @@ issue36.s: issue36.c.s
 
 # target to generate assembly for a file
 issue36.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/issue36.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/issue36.dir/build.make src/tests/CMakeFiles/issue36.dir/issue36.c.s
 .PHONY : issue36.c.s
 
 json-tester.o: json-tester.c.o
@@ -349,7 +338,7 @@ json-tester.o: json-tester.c.o
 
 # target to build an object file
 json-tester.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/json-tester.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/json-tester.c.o
 .PHONY : json-tester.c.o
 
 json-tester.i: json-tester.c.i
@@ -358,7 +347,7 @@ json-tester.i: json-tester.c.i
 
 # target to preprocess a source file
 json-tester.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/json-tester.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/json-tester.c.i
 .PHONY : json-tester.c.i
 
 json-tester.s: json-tester.c.s
@@ -367,7 +356,7 @@ json-tester.s: json-tester.c.s
 
 # target to generate assembly for a file
 json-tester.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/json-tester.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/json-tester.dir/build.make src/tests/CMakeFiles/json-tester.dir/json-tester.c.s
 .PHONY : json-tester.c.s
 
 snapshot.o: snapshot.c.o
@@ -376,7 +365,7 @@ snapshot.o: snapshot.c.o
 
 # target to build an object file
 snapshot.c.o:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/snapshot.c.o
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/snapshot.c.o
 .PHONY : snapshot.c.o
 
 snapshot.i: snapshot.c.i
@@ -385,7 +374,7 @@ snapshot.i: snapshot.c.i
 
 # target to preprocess a source file
 snapshot.c.i:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/snapshot.c.i
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/snapshot.c.i
 .PHONY : snapshot.c.i
 
 snapshot.s: snapshot.c.s
@@ -394,7 +383,7 @@ snapshot.s: snapshot.c.s
 
 # target to generate assembly for a file
 snapshot.c.s:
-	cd /home/fox/faup-master/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/snapshot.c.s
+	cd /home/fox/faup_push/build && $(MAKE) -f src/tests/CMakeFiles/snapshot.dir/build.make src/tests/CMakeFiles/snapshot.dir/snapshot.c.s
 .PHONY : snapshot.c.s
 
 # Help Target
@@ -406,7 +395,6 @@ help:
 	@echo "... test"
 	@echo "... package"
 	@echo "... edit_cache"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... json-tester"
 	@echo "... hashtable"
@@ -415,8 +403,8 @@ help:
 	@echo "... install/local"
 	@echo "... decode-tester"
 	@echo "... install"
-	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... package_source"
 	@echo "... decode-tester.o"
 	@echo "... decode-tester.i"
 	@echo "... decode-tester.s"
@@ -443,6 +431,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/fox/faup-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/fox/faup_push/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

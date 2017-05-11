@@ -148,9 +148,9 @@ faup/faup.h
 faup/civetweb/civetweb.h
 -
 
-/home/fox/faup-master/src/tools/browse.h
+/home/fox/faup_push/src/tools/browse.h
 
-/home/fox/faup-master/src/tools/faup.c
+/home/fox/faup_push/src/tools/faup.c
 signal.h
 -
 stdio.h
@@ -166,7 +166,7 @@ unistd.h
 errno.h
 -
 win32-getopt.h
-/home/fox/faup-master/src/tools/win32-getopt.h
+/home/fox/faup_push/src/tools/win32-getopt.h
 getopt.h
 -
 faup/faup.h
@@ -184,9 +184,9 @@ faup/snapshot-file.h
 faup/webserver.h
 -
 shell.h
-/home/fox/faup-master/src/tools/shell.h
+/home/fox/faup_push/src/tools/shell.h
 
-/home/fox/faup-master/src/tools/shell.c
+/home/fox/faup_push/src/tools/shell.c
 stdio.h
 -
 string.h
@@ -208,11 +208,11 @@ faup/modules.h
 faup/snapshot-file.h
 -
 browse.h
-/home/fox/faup-master/src/tools/browse.h
+/home/fox/faup_push/src/tools/browse.h
 
-/home/fox/faup-master/src/tools/shell.h
+/home/fox/faup_push/src/tools/shell.h
 
-/home/fox/faup-master/src/tools/win32-getopt.h
+/home/fox/faup_push/src/tools/win32-getopt.h
 getopt.h
 -
 
