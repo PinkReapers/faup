@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/decode-tester.dir/decode-tester.o  -o decode-tester -rdynamic -ldl 

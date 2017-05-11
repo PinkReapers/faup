@@ -1,0 +1,195 @@
+Start testing: May 10 07:02 CEST
+----------------------------------------------------------
+Unable to find executable: /src/tests/test_faup.sh
+1/12 Testing: Url_Argument
+1/12 Test: Url_Argument
+Command: "" "Url_Argument"
+Directory: /home/fox/faup-master/src/tests
+"Url_Argument" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Url_Argument" end time: May 10 07:02 CEST
+"Url_Argument" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: /src/tests/test_faup.sh
+2/12 Testing: File_Argument
+2/12 Test: File_Argument
+Command: "" "File_Argument"
+Directory: /home/fox/faup-master/src/tests
+"File_Argument" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"File_Argument" end time: May 10 07:02 CEST
+"File_Argument" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: /src/tests/test_faup.sh
+3/12 Testing: Issue24
+3/12 Test: Issue24
+Command: "" "issue" "24"
+Directory: /home/fox/faup-master/src/tests
+"Issue24" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Issue24" end time: May 10 07:02 CEST
+"Issue24" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: /src/tests/test_faup.sh
+4/12 Testing: Issue27
+4/12 Test: Issue27
+Command: "" "issue" "27"
+Directory: /home/fox/faup-master/src/tests
+"Issue27" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Issue27" end time: May 10 07:02 CEST
+"Issue27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: /src/tests/test_faup.sh
+5/12 Testing: Issue28
+5/12 Test: Issue28
+Command: "" "issue" "28"
+Directory: /home/fox/faup-master/src/tests
+"Issue28" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Issue28" end time: May 10 07:02 CEST
+"Issue28" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: /src/tests/test_faup.sh
+6/12 Testing: Issue30
+6/12 Test: Issue30
+Command: "" "issue" "30"
+Directory: /home/fox/faup-master/src/tests
+"Issue30" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Issue30" end time: May 10 07:02 CEST
+"Issue30" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: /src/tests/test_faup.sh
+7/12 Testing: Issue69
+7/12 Test: Issue69
+Command: "" "issue" "69"
+Directory: /home/fox/faup-master/src/tests
+"Issue69" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Issue69" end time: May 10 07:02 CEST
+"Issue69" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: issue36
+8/12 Testing: Issue36
+8/12 Test: Issue36
+Command: ""
+Directory: /home/fox/faup-master/src/tests
+"Issue36" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Issue36" end time: May 10 07:02 CEST
+"Issue36" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: snapshot
+9/12 Testing: Snapshot
+9/12 Test: Snapshot
+Command: ""
+Directory: /home/fox/faup-master/src/tests
+"Snapshot" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Snapshot" end time: May 10 07:02 CEST
+"Snapshot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: hashtable
+10/12 Testing: Hashtable
+10/12 Test: Hashtable
+Command: ""
+Directory: /home/fox/faup-master/src/tests
+"Hashtable" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Hashtable" end time: May 10 07:02 CEST
+"Hashtable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: json-tester
+11/12 Testing: JsonURLsTester
+11/12 Test: JsonURLsTester
+Command: "" "/src/tests/urls.json"
+Directory: /home/fox/faup-master/src/tests
+"JsonURLsTester" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"JsonURLsTester" end time: May 10 07:02 CEST
+"JsonURLsTester" time elapsed: 00:00:00
+----------------------------------------------------------
+
+Unable to find executable: decode-tester
+12/12 Testing: DecodeTester
+12/12 Test: DecodeTester
+Command: ""
+Directory: /home/fox/faup-master/src/tests
+"DecodeTester" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DecodeTester" end time: May 10 07:02 CEST
+"DecodeTester" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 10 07:02 CEST

@@ -66,34 +66,3 @@ Itt látszik, hogy végigmászik a kapott stringen, és az aktuális karakterekt
 ### 5. Deployment segítése
 
 Nem találtunk olyan use case-t, ahol ezt a projektet deployolni tudnánk/szeretnénk.
-
-<p align="center"><img src="doc/images/faup-logo.png"/></p>
-
-# Dokumentáció a Intergrációs és ellenőrzési technikák c. tárgy házifeladatához.
-
-## Tesztelés
-
-### Coverage
-
-A Cmake tartalmaz egy Ctest nevű modult amivel a tesztek futtathatók. A build mappából futtatva kiderült, hogy készen van 11 tesztesetünk. Ezek eredménye az alábbi:
-
-<p align="center"><img src="doc/images/IET_1.png"/></p>
-
-Rájöttünk, hogy a Ctest lefuttat egy executable-t, ami egy C file. Majd megnézi, hogy 0-val returnölt-e. Innen tudjuk, hogy jól futott-e le. (https://cmake.org/pipermail/cmake/2010-July/038077.html)
-
-Aktiválnunk kell a tesztelést, hogy a Cmake tudja, hogy engedélyt adtunk rá. A tesztlefedettség ellenőrzésére a GCChez tartozó ingyenes GCovot használjuk.
-
-A CMake-et mindig újra kell futtatni, ha új tesztesettel bővítjük a kódot.
-
-
-
-
-
-
-
-
-
-
-
-
-

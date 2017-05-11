@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/issue36.dir/issue36.o  -o issue36 -rdynamic -ldl 

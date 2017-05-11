@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/snapshot.dir/snapshot.o  -o snapshot -rdynamic -ldl 

@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/snapshot.dir/snapshot.c.o  -o snapshot -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup_push/build/src/lib 
