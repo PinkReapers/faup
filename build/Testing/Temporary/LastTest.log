@@ -1,0 +1,802 @@
+Start testing: May 11 20:41 CEST
+----------------------------------------------------------
+1/12 Testing: Url_Argument
+1/12 Test: Url_Argument
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "Url_Argument"
+Directory: /home/fox/faup-master/build/src/tests
+"Url_Argument" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+/home/fox/faup-master/build/src/tools/faup http://foo:bar@www3.altavista.digital.com:8080/index.php1?tada=da&fremo=genial#anchor1234 > /home/fox/faup-master/build/src/tests/urls.txt.cmp
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"Url_Argument" end time: May 11 20:41 CEST
+"Url_Argument" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/12 Testing: File_Argument
+2/12 Test: File_Argument
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "File_Argument"
+Directory: /home/fox/faup-master/build/src/tests
+"File_Argument" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+/home/fox/faup-master/build/src/tools/faup /home/fox/faup-master/src/tests/someurls.txt > /home/fox/faup-master/build/src/tests/urls.txt.cmp
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"File_Argument" end time: May 11 20:41 CEST
+"File_Argument" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/12 Testing: Issue24
+3/12 Test: Issue24
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "24"
+Directory: /home/fox/faup-master/build/src/tests
+"Issue24" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"Issue24" end time: May 11 20:41 CEST
+"Issue24" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/12 Testing: Issue27
+4/12 Test: Issue27
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "27"
+Directory: /home/fox/faup-master/build/src/tests
+"Issue27" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"Issue27" end time: May 11 20:41 CEST
+"Issue27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/12 Testing: Issue28
+5/12 Test: Issue28
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "28"
+Directory: /home/fox/faup-master/build/src/tests
+"Issue28" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"Issue28" end time: May 11 20:41 CEST
+"Issue28" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/12 Testing: Issue30
+6/12 Test: Issue30
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "30"
+Directory: /home/fox/faup-master/build/src/tests
+"Issue30" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"Issue30" end time: May 11 20:41 CEST
+"Issue30" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/12 Testing: Issue69
+7/12 Test: Issue69
+Command: "/home/fox/faup-master/build/src/tests/test_faup.sh" "issue" "69"
+Directory: /home/fox/faup-master/build/src/tests
+"Issue69" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"Issue69" end time: May 11 20:41 CEST
+"Issue69" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/12 Testing: Issue36
+8/12 Test: Issue36
+Command: "/home/fox/faup-master/build/src/tests/issue36"
+Directory: /home/fox/faup-master/build/src/tests
+"Issue36" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+The tld array has already been populated!
+Error with faup_tld_array_populate from faup_tld_tree_new; Symptom: double initialization?
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"Issue36" end time: May 11 20:41 CEST
+"Issue36" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: Snapshot
+9/12 Test: Snapshot
+Command: "/home/fox/faup-master/build/src/tests/snapshot"
+Directory: /home/fox/faup-master/build/src/tests
+"Snapshot" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+The snapshot test.urls already exists!
+The snapshot arf.urls already exists!
+Creating snapshort test
+** Snapshot debug:
+** Name: test
+** items length: 2
+** 	item
+** 	key:foo
+** 	length:1
+**		value:->bar<-
+**		first time seen: Thu May 11 20:41:28 2017
+**		last time seen: Thu May 11 20:41:28 2017
+**		count:1
+** 	item
+** 	key:ahah
+** 	length:2
+**		value:->ihih<-
+**		first time seen: Thu May 11 20:41:28 2017
+**		last time seen: Thu May 11 20:41:28 2017
+**		count:2
+**		value:->hehe<-
+**		first time seen: Thu May 11 20:41:28 2017
+**		last time seen: Thu May 11 20:41:28 2017
+**		count:1
+Snapshot closed
+** Snapshot debug:
+** Name: test
+** items length: 2
+** 	item
+** 	key:foo
+** 	length:1
+**		value:->bar<-
+**		first time seen: Wed May  3 21:07:21 2017
+**		last time seen: Wed May  3 21:07:21 2017
+**		count:1
+** 	item
+** 	key:ahah
+** 	length:2
+**		value:->ihih<-
+**		first time seen: Wed May  3 21:07:21 2017
+**		last time seen: Wed May  3 21:07:21 2017
+**		count:2
+**		value:->hehe<-
+**		first time seen: Wed May  3 21:07:21 2017
+**		last time seen: Wed May  3 21:07:21 2017
+**		count:1
+** Snapshot debug:
+** Name: arf
+** items length: 2
+** 	item
+** 	key:ahah
+** 	length:1
+**		value:->mouarf<-
+**		first time seen: Thu May 11 20:41:28 2017
+**		last time seen: Thu May 11 20:41:28 2017
+**		count:1
+** 	item
+** 	key:foo
+** 	length:1
+**		value:->bar<-
+**		first time seen: Thu May 11 20:41:28 2017
+**		last time seen: Thu May 11 20:41:28 2017
+**		count:1
+
+Comparison function:
+====================
+{
+	"snapshot name": "arf-test",
+	"snapshot length": 1,
+	"items":[		{
+		"key": "ahah",
+		"length": 1,
+		"values": [
+			{"value": "mouarf", "count": 1, "first seen": "2017-05-03 21:07:21 +0200", "last seen": "2017-05-03 21:07:21 +0200"}
+		]
+	}
+	]
+
+}
+
+===== END OF COMPARISON =====
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Snapshot" end time: May 11 20:41 CEST
+"Snapshot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/12 Testing: Hashtable
+10/12 Test: Hashtable
+Command: "/home/fox/faup-master/build/src/tests/hashtable"
+Directory: /home/fox/faup-master/build/src/tests
+"Hashtable" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+Not found
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Hashtable" end time: May 11 20:41 CEST
+"Hashtable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/12 Testing: JsonURLsTester
+11/12 Test: JsonURLsTester
+Command: "/home/fox/faup-master/build/src/tests/json-tester" "/home/fox/faup-master/src/tests/urls.json"
+Directory: /home/fox/faup-master/build/src/tests
+"JsonURLsTester" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+testing url: 'http://!vars'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http:///vars?=test&dfdsf'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'https://wwdég.google.com/unicode%20#hi'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://www.slashdot.org/index.html'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://127.0.0.1/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: '127.0.0.1'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'tunnel://www.mysei:440/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'https://lol.com:443/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'https://test.com/?gna=v'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'https://test.com#gna=v'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://test.com:40/query?vars'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'ftp://login:pwd@myftp.com/path'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'ftp://login@127.0.0.1/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'tunnel://test.com:443/vars?=test&dfdsf#salut'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'dsfdsfs'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://www.google.com/aclk?sa=l&ai=CYXXXXXXXXXXXpa7lo0Epsa91UHFisELCAAQAVD2kfW1_P____8BYPvhkoO4CqABisnWzAPIAQGpAkvOYeOnnbQ-XXXXXXXXXXXXXXXXXXXX&sig=AOD64_3XAr8_1wJEFMTu04cHBeza8bTInw&ved=0CFoQ0Qw&adurl=sdqdfdsgregrerth%3Fxtor%3DSEC-553&rct=j&q='
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'sip://example.co.uk/user1'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://12344322345/blah.html'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'tagadatsouintsouin://éé.lovemetender.co.uk:pfiew/rahh.txt'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.sptest.co.'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.test.jet.uk'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.test.jet.uk/blah.html'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'foo.city.kawasaki.jp'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'city.kawasaki.jp/fdswer'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.test.jp'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://www.test.com.uk'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.tagada.om'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.tagada.om/blah'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.tagada.siemens.om'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'www.tagada.siemens.om/klmfds'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://www.example.com/sample/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://www.EXAMPLE.com/sample/#'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'Http://www.ex%41mple.com/s%61mple/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://www.example.com/sample/arbitrary/.%2e/'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'padawan.g'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://w2.bl.uk?foo=bar'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: '::1'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://cache.google.com/?q=http://www.google.com/path/to/search.html?q=test&loc=ro%20Romania'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://penlakes.typepad.com/the_personal_blog_of_tom_/#tp_blog_of_tom_/#tp'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'http://jiehun.cn/hunyan/jd.php?qy=a%C3%83???%C3%83'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+testing url: 'epsg.org#4326'
+	scheme: OK
+	credential: OK
+	subdomain: OK
+	domain: OK
+	domain without tld: OK
+	host: OK
+	tld: OK
+	port: OK
+	resource path: OK
+	query string: OK
+	fragment: OK
+	url type: OK
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"JsonURLsTester" end time: May 11 20:41 CEST
+"JsonURLsTester" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/12 Testing: DecodeTester
+12/12 Test: DecodeTester
+Command: "/home/fox/faup-master/build/src/tests/decode-tester"
+Directory: /home/fox/faup-master/build/src/tests
+"DecodeTester" start time: May 11 20:41 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"DecodeTester" end time: May 11 20:41 CEST
+"DecodeTester" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 11 20:41 CEST

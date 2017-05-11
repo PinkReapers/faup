@@ -43,3 +43,9 @@ add_test(Hashtable hashtable)
 add_executable(json-tester json-tester.c)
 target_link_libraries(json-tester ${FAUP_LIBRARY} ${CMAKE_DL_LIBS})
 add_test(JsonURLsTester json-tester ${URLS_JSON})
+
+
+# Decode test
+add_executable(decode-tester decode-tester.c)
+target_link_libraries(decode-tester ${FAUP_LIBRARY} ${CMAKE_DL_LIBS})
+add_test(DecodeTester decode-tester)

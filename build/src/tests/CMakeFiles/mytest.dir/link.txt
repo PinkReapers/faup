@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/mytest.dir/mytest.c.o  -o mytest -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup-master/build/src/lib 

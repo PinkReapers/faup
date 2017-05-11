@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/decode-tester.dir/decode-tester.c.o  -o decode-tester -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup-master/build/src/lib 

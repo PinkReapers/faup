@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/lib/include/faup/hash/build_assert.h
+
+../src/lib/include/faup/hash/hash.h
+stdint.h
+-
+stdlib.h
+-
+build_assert.h
+../src/lib/include/faup/hash/build_assert.h
+
+../src/lib/include/faup/hash/htable.h
+stdint.h
+-
+stdbool.h
+-
+stdlib.h
+-
+
+/home/fox/faup-master/src/tests/hashtable.c
+stdio.h
+-
+string.h
+-
+faup/hash/hash.h
+-
+faup/hash/htable.h
+-
+

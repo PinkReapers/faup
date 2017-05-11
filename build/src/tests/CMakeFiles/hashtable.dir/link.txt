@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/hashtable.dir/hashtable.c.o  -o hashtable -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup-master/build/src/lib 

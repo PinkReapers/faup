@@ -1,0 +1,8 @@
+/home/fox/faup-master/src/tests/CMakeFiles/edit_cache.dir
+/home/fox/faup-master/src/tests/CMakeFiles/test.dir
+/home/fox/faup-master/src/tests/CMakeFiles/decode-tester.dir
+/home/fox/faup-master/src/tests/CMakeFiles/issue36.dir
+/home/fox/faup-master/src/tests/CMakeFiles/snapshot.dir
+/home/fox/faup-master/src/tests/CMakeFiles/hashtable.dir
+/home/fox/faup-master/src/tests/CMakeFiles/rebuild_cache.dir
+/home/fox/faup-master/src/tests/CMakeFiles/json-tester.dir

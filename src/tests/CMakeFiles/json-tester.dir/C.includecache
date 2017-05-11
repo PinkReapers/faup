@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fox/faup-master/src/tests/json-tester.c
+stdio.h
+-
+stdlib.h
+-
+faup/faup.h
+-
+faup/features.h
+-
+faup/decode.h
+-
+faup/output.h
+-
+faup/parson.h
+-
+

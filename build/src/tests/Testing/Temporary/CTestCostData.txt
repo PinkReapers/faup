@@ -1,0 +1,12 @@
+Url_Argument 1 0.152344
+File_Argument 1 0.110918
+Issue24 1 0.115349
+Issue27 1 0.100999
+Issue28 1 0.0981359
+Issue30 1 0.0966382
+Issue69 1 0.09852
+Issue36 1 0.00595808
+Snapshot 1 0.00344205
+Hashtable 1 0.00142813
+JsonURLsTester 1 0.00681591
+---

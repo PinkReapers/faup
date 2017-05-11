@@ -1,0 +1,17 @@
+Url_Argument 65 0.00202029
+File_Argument 65 0.00176495
+Issue24 65 0.00197646
+Issue27 65 0.00213977
+Issue28 65 0.00159976
+Issue30 65 0.00169845
+Issue69 65 0.00168503
+Issue36 65 0.000114892
+Snapshot 65 6.63537e-05
+Hashtable 65 2.22133e-05
+JsonURLsTester 65 0.000105139
+Mytest 0 0
+MyTest 0 0
+EgyTokMasTeszt 3 0.00326927
+DecodeTester 10 0
+---
+DecodeTester

@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/issue36.dir/issue36.c.o  -o issue36 -rdynamic ../lib/libfaupl.so.1 -ldl -lpthread -Wl,-rpath,/home/fox/faup-master/build/src/lib 
